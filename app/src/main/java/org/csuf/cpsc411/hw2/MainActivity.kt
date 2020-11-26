@@ -43,9 +43,12 @@ open class MainActivity : AppCompatActivity() {
             var sTitle:String =claimTitle.text.toString()
             var sDate:String=date.text.toString()
             Log.d("Add","Title:${sTitle},Date:${sDate}")
+            if(sTitle!=""){// checks to see users did not just click the add button
+              if(sDate !="")  {// checks to make sure user did not forget date
             cObj=Claim(sTitle,sDate)
             cService.addClaim(cObj)
-            refreshScreen()
+            refreshScreen()}
+            }
 
         }
     }
